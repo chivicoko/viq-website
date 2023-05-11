@@ -128,6 +128,8 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'viq/static/')
 ]
 
+# override the unauthorized 'login authentication' redirection
+LOGIN_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
