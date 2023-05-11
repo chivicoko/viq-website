@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Item</th>
+            {% comment %} <th>Action</th> {% endcomment %}
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>
+                    <div class="post_entry">
+                        <small><em>Posted at {{task.created_at}}</em> | <a style="color: black;" href="task/{{task.pk}}/update">Edit Post</a></small> <br>
+                        <h1 class="post_title"><a href="{% url 'task-detail' task.pk %}">{{task.title}}</a></h1>
+                        <p class="post_content">{{task.description}}</p><br>
+                        {% comment %} <small></small> {% endcomment %}
+                    </div>
+                </td>
+                {% comment %} <td><p class="post_content"><a style="color: black;" href="{% url 'task-detail' task.pk %}">View</a></p></td> {% endcomment %}
+            </tr>
+            {% comment %} <div class="post_entry">
+                <small><em>Posted at {{post.created_at}}</em></small>
+                <h1 class="post_title"><a href="{% url 'post-detail' post.pk %}">{{post.title}}</a></h1>
+                <p class="post_content">{{post.body | safe}}</p>
+            </div>  {% endcomment %}
+        
+        {% empty %}
+            <div class="post_entry" style='text-align: center;'>
+                <h1 class="post_title" style='font-size: 55px; color: grey;'>There are no posts yet</h1>
+                <p>click the 'Add New Post' button above to make a post</p>
+            </div> 
+        {% endfor %}
+    </table>
+{% endblock content %}

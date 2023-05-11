@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViqBlog</title>
+    {% load static %}
+        
+    {% comment %} favicons {% endcomment %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon-16x16.png" %}">
+    {% comment %} <link rel="manifest" href="/site.webmanifest"> {% endcomment %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+</head>
+<body>
+    <header class="site_header">
+        <div class="site_brand">
+            <h1><a href="{% url 'home' %}">ViqBloq</a></h1>
+            <p>
+                <div style='margin-left: 10px;'><a href="{% url 'post-new' %}"> Add New post</a></div>
+                <div style='margin-left: 10px;'><a href="{% url 'task-create' %}"> Add New Task</a></div>
+                <div><a href="{% url 'tasks' %}"> To Do List</a></div>
+            </p>
+        </div>
+    </header>
+
+    <div class="content_wrapper">
+        <div class="content">
+            {% block content %}
+                <h1>Welcome to the home page of my bloq.</h1>
+            {% endblock %}
+        </div>
+
+        <div class="sidebar">
+            <div class="widget">
+                <h1 class="widget_title">Sidebar Title</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

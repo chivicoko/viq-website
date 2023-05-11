@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object_list %}
+        {% for post in object_list %}
+            <div class="post_entry">
+                <small><em>Posted at {{post.created_at}}</em></small>
+                <h1 class="post_title"><a href="{% url 'post-detail' post.pk %}">{{post.title}}</a></h1>
+                <p class="post_content">{{post.body | safe}}</p>
+            </div> 
+        {% endfor %}
+    {% else %}
+        <div class="post_entry" style='text-align: center;'>
+            <h1 class="post_title" style='font-size: 55px; color: grey;'>There are no posts yet</h1>
+            <p>click the 'Add New Post' button above to make a post</p>
+        </div> 
+    {% endif %}
+{% endblock content %}
