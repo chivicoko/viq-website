@@ -20,7 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # connect mybloq urls to the main project url
     path('', include('blog.urls')),
     path('todo/tasks/', include('todo.urls')),
 ]

@@ -124,9 +124,7 @@ STATIC_URL = 'static/'
 # connect static file directory
 STATIC_ROOT = (os.path.join(BASE_DIR, 'static'))
 
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, 'viq/static/')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'viq/static/')]
 
 # override the unauthorized 'login authentication' redirection
 LOGIN_URL = 'login'

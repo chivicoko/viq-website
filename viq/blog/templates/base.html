@@ -22,16 +22,13 @@
             <p>
                 {% if request.user.is_authenticated %}
                     <div style='margin-left: 10px;'><a href="{% url 'logout' %}">Logout</a></div>
-                    <div style='margin-left: 10px;'><p>{{request.user}}</p></div>
                     <div style='margin-left: 10px;'><a href="{% url 'post-new' %}"> Add New post</a></div>
                     <div style='margin-left: 10px;'><a href="{% url 'task-create' %}"> Add New Task</a></div>
-                    <div><a href="{% url 'tasks' %}"> To Do List</a></div>
+                    <div style='margin-left: 10px;'><a href="{% url 'tasks' %}"> To Do List</a></div>
+                    <div style='margin-right: 100px; border-bottom: none; border-top: none;'><p>You have <em>{{count}}</em> incomplete task{{count | pluralize:"s"}}</p></div>
+                    <div style='margin-right: 10px; border-bottom: none; border-top: none;'><p>Hello, {{request.user | title}}!</p></div>
                 {% else %}
                     <div style='margin-left: 10px;'><a href="{% url 'login' %}">Login</a></div>
-                    <div style='margin-left: 10px;'><p>{{request.user}}</p></div>
-                    <div style='margin-left: 10px;'><a href="{% url 'post-new' %}"> Add New post</a></div>
-                    <div style='margin-left: 10px;'><a href="{% url 'task-create' %}"> Add New Task</a></div>
-                    <div><a href="{% url 'tasks' %}"> To Do List</a></div>
                 {% endif %}
             </p>
         </div>
